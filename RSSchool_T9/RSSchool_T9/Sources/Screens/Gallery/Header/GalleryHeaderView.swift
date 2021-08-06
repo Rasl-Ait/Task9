@@ -215,7 +215,8 @@ extension GalleryHeaderView: UICollectionViewDelegateFlowLayout {
   }
   
   public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 100
+    let width = collectionView.frame.width
+    return (width / 3)
   }
   
   public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
