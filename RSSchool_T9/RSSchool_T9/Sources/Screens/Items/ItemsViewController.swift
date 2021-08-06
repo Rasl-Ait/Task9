@@ -21,7 +21,7 @@ class ItemsViewController: BaseViewController {
     return cv
   }()
   
-  var colorText = "#92003b"
+  var colorText = "#f3af22"
   
   override func viewDidLoad() {
     super.viewDidLoad()
