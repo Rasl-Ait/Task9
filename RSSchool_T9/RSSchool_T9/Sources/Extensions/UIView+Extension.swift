@@ -26,6 +26,25 @@ extension UIView {
 	var bottom: CGFloat {
 			return top + height
 	}
+  
+  func bind(to view: UIView, insets: UIEdgeInsets = .zero) {
+      NSLayoutConstraint.activate([
+          leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: insets.left),
+          topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top),
+          trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: insets.right),
+          bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom)
+      ])
+  }
+  
+  func bind(to guide: UILayoutGuide, insets: UIEdgeInsets = .zero) {
+      NSLayoutConstraint.activate([
+          leadingAnchor.constraint(equalTo: guide.leadingAnchor, constant: insets.left),
+          topAnchor.constraint(equalTo: guide.topAnchor, constant: insets.top),
+          trailingAnchor.constraint(equalTo: guide.trailingAnchor, constant: insets.right),
+          bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: insets.bottom)
+      ])
+  }
+  
 	
 	func circle() {
 		let raduis = self.bounds.width / 2

@@ -107,19 +107,20 @@ extension ItemsViewController: UICollectionViewDelegate {
     selectedImage = cell.imageView
     
     let model = FillingData.data[indexPath.item]
-    let vc = GalleryViewController()
+  
     
     switch model {
     case .gallery(let gallery):
-      vc.gallery = gallery
+      let vc = GalleryViewController(gallery: gallery)
+      vc.transitioningDelegate = self
+      vc.modalPresentationStyle = .overFullScreen
+      present(vc, animated: true, completion: nil)
     case .story(let story):
-      vc.story = story
-      vc.colorText = colorText
+      let vc = StoryViewController(story: story, color: colorText)
+      vc.transitioningDelegate = self
+      vc.modalPresentationStyle = .overFullScreen
+      present(vc, animated: true, completion: nil)
     }
-    
-    vc.transitioningDelegate = self
-    vc.modalPresentationStyle = .overFullScreen
-    present(vc, animated: true, completion: nil)
   }
 }
 
